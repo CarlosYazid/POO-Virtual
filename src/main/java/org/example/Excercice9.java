@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Excercise9 {
+public class Excercice9 {
     
     private static Scanner keyboard = new Scanner(System.in);
     

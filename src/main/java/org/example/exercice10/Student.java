@@ -2,6 +2,7 @@ package org.example.exercice10;
 
 import java.util.Objects;
 import java.util.Random;
+import java.lang.Math;
 
 public class Student {
     
@@ -25,7 +26,7 @@ public class Student {
     }
     
     public Student(String name, float patrimony, int socialStrata) {
-        this(rand.nextInt(), name, patrimony, socialStrata);
+        this(Math.abs(rand.nextInt()), name, patrimony, socialStrata);
     }
     
     public float computeUniversityTuition() {

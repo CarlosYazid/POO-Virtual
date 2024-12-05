@@ -22,8 +22,8 @@ public class Excercice11 {
         
         List<Integer> listOrdered = numbers.stream().sorted().toList();
         
-        System.out.println("El numero mayor que todos es: " + numbers.getFirst() + ", el segundo " +
-                "es: " + listOrdered.get(1) + ", el tercer es: " + listOrdered.get(2));
+        System.out.println("El numero mayor que todos es: " + numbers.getLast() + ", el segundo " +
+                "es: " + listOrdered.get(1) + ", el tercer es: " + listOrdered.getFirst());
         
         System.out.println("Ejercicio Resuelto: 11");
     }

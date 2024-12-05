@@ -1,7 +1,14 @@
 package org.example;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+    public static void main (String[] args) {
+        
+        
+        //Excercice12.run();
+        //Excercice13.run();
+        //Excercice14.run();
+        //Excercice15.run();
+        Excercice18.run();
+        
     }
 }

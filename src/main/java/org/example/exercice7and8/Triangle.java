@@ -1,4 +1,4 @@
-package org.example.exercice7;
+package org.example.exercice7and8;
 
 import java.util.Objects;
 import java.util.Random;
@@ -14,11 +14,14 @@ public abstract class Triangle {
     protected double angleB;
     protected double angleC;
     protected double height;
+    protected double perimeter;
+    protected double area;
     
     protected Triangle(double sideA, double sideB, double sideC) {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
+        this.perimeter = sideA + sideB + sideC;
         genAngles();
         genHeight();
     }
@@ -56,16 +59,19 @@ public abstract class Triangle {
     
     public void setSideA (double sideA) {
         this.sideA = sideA;
+        this.perimeter = sideA + sideB + sideC;
         genAngles();
     }
     
     public void setSideB (double sideB) {
         this.sideB = sideB;
+        this.perimeter = sideA + sideB + sideC;
         genAngles();
     }
     
     public void setSideC (double sideC) {
         this.sideC = sideC;
+        this.perimeter = sideA + sideB + sideC;
         genAngles();
     }
     
@@ -85,7 +91,10 @@ public abstract class Triangle {
         return height;
     }
     
-    public abstract double getPerimeter();
+    public double getPerimeter(){
+        return perimeter;
+    };
+    
     public abstract double getArea();
     protected abstract void genAngles();
     protected abstract void genHeight();

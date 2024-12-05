@@ -1,38 +1,25 @@
-package org.example.exercice7and8;
+package org.example.projectFigures;
 
 import java.util.Objects;
 import java.util.Random;
 
-public abstract class Triangle {
+public abstract class Triangle extends Figure {
     
-    protected static Random rand = new Random();
+    protected static Random RAND = new Random();
     
     protected double sideA;
     protected double sideB;
     protected double sideC;
-    protected double angleA;
-    protected double angleB;
-    protected double angleC;
-    protected double height;
-    protected double perimeter;
-    protected double area;
     
-    protected Triangle(double sideA, double sideB, double sideC) {
+    protected Triangle (double sideA, double sideB, double sideC) {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
         this.perimeter = sideA + sideB + sideC;
-        genAngles();
-        genHeight();
     }
     
-    protected Triangle(){
-        this(rand.nextDouble(), rand.nextDouble(), rand.nextDouble());
-    }
-    
-    @Override
-    public String toString () {
-        return "Triangle{" + "sideA=" + sideA + ", angleA=" + angleA + ", sideB=" + sideB + ", angleB=" + angleB + ", sideC=" + sideC + ", angleC=" + angleC + '}';
+    protected Triangle (){
+        this(RAND.nextDouble(), RAND.nextDouble(), RAND.nextDouble());
     }
     
     @Override
@@ -47,48 +34,29 @@ public abstract class Triangle {
         return Objects.hash(getSideA(), getSideB(), getSideC());
     }
     
-    public double getSideA() {
+    double getSideA() {
         return sideA;
     }
-    public double getSideB() {
+    double getSideB() {
         return sideB;
     }
-    public double getSideC() {
+    double getSideC() {
         return sideC;
     }
     
-    public void setSideA (double sideA) {
+    void setSideA (double sideA) {
         this.sideA = sideA;
         this.perimeter = sideA + sideB + sideC;
-        genAngles();
     }
     
-    public void setSideB (double sideB) {
+    void setSideB (double sideB) {
         this.sideB = sideB;
         this.perimeter = sideA + sideB + sideC;
-        genAngles();
     }
     
-    public void setSideC (double sideC) {
+    void setSideC (double sideC) {
         this.sideC = sideC;
         this.perimeter = sideA + sideB + sideC;
-        genAngles();
-    }
-    
-    public double getAngleA () {
-        return angleA;
-    }
-    
-    public double getAngleB () {
-        return angleB;
-    }
-    
-    public double getAngleC () {
-        return angleC;
-    }
-    
-    public double getHeight() {
-        return height;
     }
     
     public double getPerimeter(){
@@ -96,6 +64,21 @@ public abstract class Triangle {
     };
     
     public abstract double getArea();
-    protected abstract void genAngles();
-    protected abstract void genHeight();
+    
+    /**
+     * Metodo que determina si un triángulo es:<br>
+     * - Equilatero: si sus tres lados son iguales<br>
+     * - Escaleno: si sus tres lados son todos diferentes<br>
+     * - Isosceles: si dos de sus lados son iguales y el otro es diferente de
+     * los demás
+     */
+    public String type() {
+        if (getSideA() == getSideB() && getSideB() == getSideC()) {
+            return "Equilatero";
+        } else if ((getSideA() == getSideB()) || (getSideA() == getSideC()) || (getSideB() == getSideC())) {
+            return "Isosceles";
+        } else {
+            return "Escaleno";
+        }
+    }
 }

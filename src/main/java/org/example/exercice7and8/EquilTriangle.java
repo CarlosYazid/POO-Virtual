@@ -1,4 +1,4 @@
-package org.example.exercice7;
+package org.example.exercice7and8;
 import java.util.Random;
 
 public class EquilTriangle extends Triangle {
@@ -39,11 +39,6 @@ public class EquilTriangle extends Triangle {
     @Override
     public String toString () {
         return "EquilTriangle{" + "side=" + sideA + "} ";
-    }
-    
-    @Override
-    public double getPerimeter () {
-        return sideA*3;
     }
     
     @Override

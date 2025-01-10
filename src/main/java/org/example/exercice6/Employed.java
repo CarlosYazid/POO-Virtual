@@ -2,7 +2,7 @@ package org.example.exercice6;
 import java.util.Objects;
 import java.util.Random;
 
-public class Empleado {
+public class Employed {
     
     private static float rateWorkHour; // Valor de horas trabajadas
     private static float taxSalary;
@@ -15,7 +15,7 @@ public class Empleado {
     private float tax;
     private float salary;
     
-    public Empleado(int id, String name, float workHours) {
+    public Employed (int id, String name, float workHours) {
         this.id = id;
         this.name = name;
         this.workHours = workHours;
@@ -24,20 +24,20 @@ public class Empleado {
         this.salary = grossSalary - tax;
     }
     
-    public Empleado(){
+    public Employed (){
         this(rand.nextInt(),null,rand.nextFloat());
     }
     
     @Override
     public String toString () {
-        return "Empleado{" + "id=" + id + ", name='" + name + '\'' + ", grossSalary=" + grossSalary + ", salary=" + salary + '}';
+        return "Employed{" + "id=" + id + ", name='" + name + '\'' + ", grossSalary=" + grossSalary + ", salary=" + salary + '}';
     }
     
     @Override
     public boolean equals (Object o) {
         if (this == o) return true;
-        if (!(o instanceof Empleado empleado)) return false;
-        return getId() == empleado.getId();
+        if (!(o instanceof Employed employed)) return false;
+        return getId() == employed.getId();
     }
     
     @Override
@@ -71,7 +71,7 @@ public class Empleado {
     }
     
     public static void setRateWorkHour (float rateWorkHour) {
-        Empleado.rateWorkHour = rateWorkHour;
+        Employed.rateWorkHour = rateWorkHour;
     }
     
     public float getSalary () {
@@ -88,7 +88,7 @@ public class Empleado {
     }
     
     public static void setTaxSalary (float taxSalary) {
-        Empleado.taxSalary = taxSalary;
+        Employed.taxSalary = taxSalary;
     }
     
     public float getWorkHours () {

@@ -16,30 +16,18 @@ public class Main {
     public static void main (String[] args) {
         
         Excercice6.run();
-        System.out.println();
         Excercice7.run();
-        System.out.println();
-        Excercice8.run();
-        System.out.println();
+        //Excercice8.run();
         Excercice9.run();
-        System.out.println();
         Excercice10.run();
-        System.out.println();
-        Excercice11.run();
-        System.out.println();
+        /*Excercice11.run();
         Excercice12.run();
-        System.out.println();
         Excercice13.run();
-        System.out.println();
         Excercice14.run();
-        System.out.println();
-        Excercice15.run();
-        System.out.println();
+        Excercice15.run();*/
         Excercice16.run();
-        System.out.println();
         Excercice17.run();
-        System.out.println();
-        Excercice18.run();
+        //Excercice18.run();
         
     }
 }

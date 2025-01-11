@@ -9,7 +9,7 @@ public class Excercice7 {
     
     public static void run() {
         // Crear la ventana principal
-        JFrame window = new JFrame("Ejercicio 7 - Triángulo Equilátero");
+        JFrame window = new JFrame("Ejercicio 19 - Triángulo Equilátero");
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setSize(500, 400);
         window.setLayout(new BorderLayout());

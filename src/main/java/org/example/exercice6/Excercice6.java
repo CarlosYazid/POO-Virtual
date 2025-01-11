@@ -6,7 +6,7 @@ import java.awt.*;
 public class Excercice6 {
     
     public static void run() {
-        JFrame window = new JFrame("Ejercicio 6 - Cálculo de Empleado");
+        JFrame window = new JFrame("Ejercicio 18 - Cálculo de Empleado");
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setSize(500, 400);
         window.setLayout(new BorderLayout());

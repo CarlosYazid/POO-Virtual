@@ -9,7 +9,7 @@ public class Excercice16 {
     
     public static void run() {
         // Crear el marco principal
-        JFrame frame = new JFrame("Calculadora de Salario - Empleado");
+        JFrame frame = new JFrame("Ejercicio 22 - Calculadora de Salario - Empleado");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(500, 400);
         frame.setLayout(new BorderLayout(10, 10)); // Espaciado entre zonas principales

@@ -11,7 +11,7 @@ public class Excercice9 {
     
     public static void run() {
         // Crear ventana principal
-        JFrame frame = new JFrame("Ejercicio 9 - Comparar Números");
+        JFrame frame = new JFrame("Ejercicio 7 - Comparar Números");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(500, 400);
         frame.setLayout(new BorderLayout(10, 10)); // Espaciado entre los componentes principales

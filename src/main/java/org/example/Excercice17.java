@@ -3,8 +3,6 @@ package org.example;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Excercice17 {
     
@@ -14,6 +12,7 @@ public class Excercice17 {
         frame.setSize(500, 350);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout(15, 15)); // Espaciado entre paneles
+        frame.setLocationRelativeTo(null);
         
         // **Panel de entrada**
         JPanel inputPanel = new JPanel();
@@ -100,39 +99,36 @@ public class Excercice17 {
         resultPanel.add(x2Result);
         
         // **Acción del botón Calcular**
-        computeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    // Leer los coeficientes
-                    double a = Double.parseDouble(aField.getText());
-                    double b = Double.parseDouble(bField.getText());
-                    double c = Double.parseDouble(cField.getText());
+        computeButton.addActionListener(e -> {
+            try {
+                // Leer los coeficientes
+                double a = Double.parseDouble(aField.getText());
+                double b = Double.parseDouble(bField.getText());
+                double c = Double.parseDouble(cField.getText());
+                
+                // Calcular el discriminante
+                double discriminant = (b * b) - (4 * a * c);
+                
+                // Calcular y mostrar resultados
+                if (discriminant < 0) {
+                    x1Result.setText("Indeterminado");
+                    x2Result.setText("Indeterminado");
+                    x1Result.setForeground(Color.RED);
+                    x2Result.setForeground(Color.RED);
+                } else {
+                    double denominator = 2 * a;
+                    double sol1 = (-b + Math.sqrt(discriminant)) / denominator;
+                    double sol2 = (-b - Math.sqrt(discriminant)) / denominator;
                     
-                    // Calcular el discriminante
-                    double discriminant = (b * b) - (4 * a * c);
-                    
-                    // Calcular y mostrar resultados
-                    if (discriminant < 0) {
-                        x1Result.setText("Indeterminado");
-                        x2Result.setText("Indeterminado");
-                        x1Result.setForeground(Color.RED);
-                        x2Result.setForeground(Color.RED);
-                    } else {
-                        double denominator = 2 * a;
-                        double sol1 = (-b + Math.sqrt(discriminant)) / denominator;
-                        double sol2 = (-b - Math.sqrt(discriminant)) / denominator;
-                        
-                        x1Result.setText(String.format("%.2f", sol1)); // Formatear a 2 decimales
-                        x2Result.setText(String.format("%.2f", sol2));
-                        x1Result.setForeground(Color.BLUE);
-                        x2Result.setForeground(Color.BLUE);
-                    }
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(frame, "Por favor, introduce valores numéricos válidos.", "Error", JOptionPane.ERROR_MESSAGE);
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(frame, "Ha ocurrido un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    x1Result.setText(String.format("%.2f", sol1)); // Formatear a 2 decimales
+                    x2Result.setText(String.format("%.2f", sol2));
+                    x1Result.setForeground(Color.BLUE);
+                    x2Result.setForeground(Color.BLUE);
                 }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(frame, "Por favor, introduce valores numéricos válidos.", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(frame, "Ha ocurrido un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         

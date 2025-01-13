@@ -4,8 +4,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Excercice9 {
     
@@ -15,6 +13,7 @@ public class Excercice9 {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(500, 400);
         frame.setLayout(new BorderLayout(10, 10)); // Espaciado entre los componentes principales
+        frame.setLocationRelativeTo(null);
         
         // --- Panel de inputs ---
         JPanel inputPanel = new JPanel();
@@ -54,24 +53,23 @@ public class Excercice9 {
         resultPanel.add(result);
         
         // Acción del botón
-        compareButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    int a = Integer.parseInt(aField.getText());
-                    int b = Integer.parseInt(bField.getText());
-                    
-                    if (a > b) {
-                        result.setText("A es mayor que B");
-                    } else if (a < b) {
-                        result.setText("B es mayor que A");
-                    } else {
-                        result.setText("A y B son iguales.");
-                    }
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(frame, "Por favor, ingrese números válidos.",
-                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+        compareButton.addActionListener(e -> {
+            try {
+                int a = Integer.parseInt(aField.getText());
+                int b = Integer.parseInt(bField.getText());
+                
+                if (a > b) {
+                    result.setText("A es mayor que B");
+                } else if (a < b) {
+                    result.setText("B es mayor que A");
+                } else {
+                    result.setText("A y B son iguales.");
                 }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(frame, "Por favor, ingrese números válidos.",
+                        "Error de entrada", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(frame, "Hubo un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         

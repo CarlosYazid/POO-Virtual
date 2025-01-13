@@ -2,8 +2,6 @@ package org.example.exercice7and8;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Excercice7 {
     
@@ -13,6 +11,7 @@ public class Excercice7 {
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setSize(500, 400);
         window.setLayout(new BorderLayout());
+        window.setLocationRelativeTo(null);
         
         // Panel principal con un fondo de color suave
         JPanel mainPanel = new JPanel();
@@ -77,28 +76,29 @@ public class Excercice7 {
         mainPanel.add(footer);
         
         // Escuchador para el botón
-        computeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    double side = Double.parseDouble(sideInput.getText());
-                    if (side <= 0) {
-                        throw new IllegalArgumentException("El lado debe ser mayor que cero.");
-                    }
-                    Triangle equilTriangle = new EquilTriangle(side);
-                    areaLabel.setText("Área del triángulo: " + equilTriangle.getArea());
-                    perimeterLabel.setText("Perímetro del triángulo: " + equilTriangle.getPerimeter());
-                    heightLabel.setText("Altura del triángulo: " + equilTriangle.getHeight());
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "Por favor ingrese un número válido.",
-                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
-                } catch (IllegalArgumentException ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Error de entrada",
-                            JOptionPane.ERROR_MESSAGE);
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Error inesperado: " + ex.getMessage(),
-                            "Error", JOptionPane.ERROR_MESSAGE);
+        computeButton.addActionListener(e -> {
+            try {
+                
+                double side = Double.parseDouble(sideInput.getText());
+                
+                if (side <= 0) {
+                    throw new IllegalArgumentException("El lado debe ser mayor que cero.");
                 }
+                
+                Triangle equilTriangle = new EquilTriangle(side);
+                areaLabel.setText("Área del triángulo: " + equilTriangle.getArea());
+                perimeterLabel.setText("Perímetro del triángulo: " + equilTriangle.getPerimeter());
+                heightLabel.setText("Altura del triángulo: " + equilTriangle.getHeight());
+                
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese un número válido.",
+                        "Error de entrada", JOptionPane.ERROR_MESSAGE);
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error de entrada",
+                        JOptionPane.ERROR_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error inesperado: " + ex.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         

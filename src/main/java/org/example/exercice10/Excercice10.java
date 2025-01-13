@@ -2,8 +2,6 @@ package org.example.exercice10;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Excercice10 {
     
@@ -52,6 +50,7 @@ public class Excercice10 {
                 BorderFactory.createEmptyBorder(10, 10, 10, 10) // Márgenes internos del panel
         ));
         resultPanel.setPreferredSize(new Dimension(400, 100));
+        
         JLabel resultLabel = new JLabel("Esperando datos...", SwingConstants.CENTER);
         resultLabel.setFont(new Font("Arial", Font.BOLD, 14));
         resultLabel.setForeground(new Color(0, 128, 0)); // Verde oscuro
@@ -66,40 +65,38 @@ public class Excercice10 {
         computeButton.setPreferredSize(new Dimension(200, 40));
         
         // Evento del botón
-        computeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    String name = nameField.getText();
-                    float patrimony = Float.parseFloat(patrimonyField.getText());
-                    int strata = Integer.parseInt(strataField.getText());
-                    
-                    // Validaciones
-                    if (strata < 1 || strata > 5) {
-                        JOptionPane.showMessageDialog(frame, "El estrato debe estar entre 1 y 5.",
-                                "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    if (name.isBlank()) {
-                        JOptionPane.showMessageDialog(frame, "El nombre del estudiante no puede quedar vacío.",
-                                "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    if (patrimony <= 0) {
-                        JOptionPane.showMessageDialog(frame, "El patrimonio debe ser mayor a 0.",
-                                "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    
-                    // Calculo de matrícula
-                    Student student = new Student(name, patrimony, strata);
-                    float tuition = student.computeUniversityTuition();
-                    resultLabel.setText("<html><div style='text-align: center;'>El estudiante con ID <b>" +
-                            student.getId() + "</b><br>Debe pagar: <b>$" + tuition + "</b></div></html>");
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(frame, "Por favor, ingresa valores válidos en todos los campos.",
+        computeButton.addActionListener(e -> {
+            try {
+                String name = nameField.getText();
+                float patrimony = Float.parseFloat(patrimonyField.getText());
+                int strata = Integer.parseInt(strataField.getText());
+                
+                // Validaciones
+                if (strata < 1 || strata > 5) {
+                    JOptionPane.showMessageDialog(frame, "El estrato debe estar entre 1 y 5.",
                             "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
+                if (name.isBlank()) {
+                    JOptionPane.showMessageDialog(frame, "El nombre del estudiante no puede quedar vacío.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if (patrimony <= 0) {
+                    JOptionPane.showMessageDialog(frame, "El patrimonio debe ser mayor a 0.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+                // Calculo de matrícula
+                Student student = new Student(name, patrimony, strata);
+                float tuition = student.computeUniversityTuition();
+                resultLabel.setText("<html><div style='text-align: center;'>El estudiante con ID <b>" +
+                        student.getId() + "</b><br>Debe pagar: <b>$" + tuition + "</b></div></html>");
+                
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(frame, "Por favor, ingresa valores válidos en todos los campos.",
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         

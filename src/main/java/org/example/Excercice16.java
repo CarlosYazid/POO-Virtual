@@ -2,8 +2,6 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Excercice16 {
     
@@ -13,6 +11,7 @@ public class Excercice16 {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(500, 400);
         frame.setLayout(new BorderLayout(10, 10)); // Espaciado entre zonas principales
+        frame.setLocationRelativeTo(null);
         
         // ** PANEL 1: Panel de Entrada **
         JPanel inputPanel = new JPanel(new GridLayout(3, 2, 10, 10)); // Grid con separación entre filas/columnas
@@ -66,44 +65,43 @@ public class Excercice16 {
         buttonPanel.add(computeButton);
         
         // Acción del botón
-        computeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    String name = nameField.getText().trim();
-                    int hours = Integer.parseInt(hoursField.getText().trim());
-                    float rateWorkHours = Float.parseFloat(rateHoursField.getText().trim());
-                    
-                    // Validaciones
-                    if (name.isEmpty()) {
-                        JOptionPane.showMessageDialog(frame, "El campo Nombre no puede estar vacío.",
-                                "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    
-                    if (hours <= 0) {
-                        JOptionPane.showMessageDialog(frame, "El campo Horas no puede ser menor o igual a cero.",
-                                "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    
-                    if (rateWorkHours <= 0) {
-                        JOptionPane.showMessageDialog(frame, "El campo Valor por hora no puede ser menor o igual a cero.",
-                                "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    
-                    // Cálculo del salario
-                    float salary = hours * rateWorkHours;
-                    if (salary > 450000) {
-                        resultLabel.setText("<html><span style='color:green;'>Empleado " + name + " tiene un salario de: $" + salary + "</span></html>");
-                    } else {
-                        resultLabel.setText("<html><span style='color:orange;'>Empleado " + name + " tiene un salario básico.</span></html>");
-                    }
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(frame, "Por favor, ingrese valores correctos.",
+        computeButton.addActionListener(e -> {
+            try {
+                String name = nameField.getText().trim();
+                int hours = Integer.parseInt(hoursField.getText().trim());
+                float rateWorkHours = Float.parseFloat(rateHoursField.getText().trim());
+                
+                // Validaciones
+                if (name.isEmpty()) {
+                    JOptionPane.showMessageDialog(frame, "El campo Nombre no puede estar vacío.",
                             "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
+                
+                if (hours <= 0) {
+                    JOptionPane.showMessageDialog(frame, "El campo Horas no puede ser menor o igual a cero.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+                if (rateWorkHours <= 0) {
+                    JOptionPane.showMessageDialog(frame, "El campo Valor por hora no puede ser menor o igual a cero.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+                // Cálculo del salario
+                float salary = hours * rateWorkHours;
+                if (salary > 450000) {
+                    resultLabel.setText("<html><span style='color:green;'>Empleado " + name + " tiene un salario de: $" + salary + "</span></html>");
+                } else {
+                    resultLabel.setText("<html><span style='color:orange;'>Empleado " + name + " tiene un salario básico.</span></html>");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(frame, "Por favor, ingrese valores correctos.",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(frame, "Hubo un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         

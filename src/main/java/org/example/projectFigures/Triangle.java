@@ -15,7 +15,7 @@ public abstract class Triangle extends Figure {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
-        this.perimeter = sideA + sideB + sideC;
+        this.perimeter = (sideA > 0 && sideB > 0 && sideC > 0) ? sideA + sideB + sideC : 0;
     }
     
     protected Triangle (){
@@ -46,17 +46,17 @@ public abstract class Triangle extends Figure {
     
     void setSideA (double sideA) {
         this.sideA = sideA;
-        this.perimeter = sideA + sideB + sideC;
+        this.perimeter = (sideA > 0 && sideB > 0 && sideC > 0) ? sideA + sideB + sideC : 0;
     }
     
     void setSideB (double sideB) {
         this.sideB = sideB;
-        this.perimeter = sideA + sideB + sideC;
+        this.perimeter = (sideA > 0 && sideB > 0 && sideC > 0) ? sideA + sideB + sideC : 0;
     }
     
     void setSideC (double sideC) {
         this.sideC = sideC;
-        this.perimeter = sideA + sideB + sideC;
+        this.perimeter = (sideA > 0 && sideB > 0 && sideC > 0) ? sideA + sideB + sideC : 0;
     }
     
     public double getPerimeter(){

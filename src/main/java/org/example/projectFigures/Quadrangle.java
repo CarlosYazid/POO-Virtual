@@ -17,7 +17,8 @@ public abstract class Quadrangle extends Figure {
         this.sideB = sideB;
         this.sideC = sideC;
         this.sideD = sideD;
-        this.perimeter = sideA + sideB + sideC + sideD;
+        this.perimeter = (sideA > 0 && sideB > 0 && sideC > 0 && sideD > 0) ?
+                sideA + sideB + sideC + sideD : 0;
     }
     
     public Quadrangle() {
@@ -39,28 +40,32 @@ public abstract class Quadrangle extends Figure {
     
     void setSideA (double sideA) {
         this.sideA = sideA;
-        this.perimeter = sideA + sideB + sideC + sideD;
+        this.perimeter = (sideA > 0 && sideB > 0 && sideC > 0 && sideD > 0) ?
+                sideA + sideB + sideC + sideD : 0;
     }
     
     double getSideB () {return sideB;}
     
     void setSideB (double sideB) {
         this.sideB = sideB;
-        this.perimeter = sideB + sideC + sideD + sideA;
+        this.perimeter = (sideA > 0 && sideB > 0 && sideC > 0 && sideD > 0) ?
+                sideA + sideB + sideC + sideD : 0;
     }
     
     double getSideC () {return sideC;}
     
     void setSideC (double sideC) {
         this.sideC = sideC;
-        this.perimeter = sideC + sideD + sideA + sideB;
+        this.perimeter = (sideA > 0 && sideB > 0 && sideC > 0 && sideD > 0) ?
+                sideA + sideB + sideC + sideD : 0;
     }
     
     double getSideD () {return sideD;}
     
     void setSideD (double sideD) {
         this.sideD = sideD;
-        this.perimeter = sideD + sideA + sideB + sideC;
+        this.perimeter = (sideA > 0 && sideB > 0 && sideC > 0 && sideD > 0) ?
+                sideA + sideB + sideC + sideD : 0;
     }
     
     public abstract double getArea();

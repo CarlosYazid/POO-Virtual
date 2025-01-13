@@ -61,7 +61,7 @@ public abstract class Triangle extends Figure {
     
     public double getPerimeter(){
         return perimeter;
-    };
+    }
     
     public abstract double getArea();
     
@@ -73,12 +73,12 @@ public abstract class Triangle extends Figure {
      * los demás
      */
     public String type() {
-        if (getSideA() == getSideB() && getSideB() == getSideC()) {
-            return "Equilatero";
-        } else if ((getSideA() == getSideB()) || (getSideA() == getSideC()) || (getSideB() == getSideC())) {
-            return "Isosceles";
-        } else {
-            return "Escaleno";
-        }
+        
+        if (getSideA() <= 0 || getSideB() <= 0 || getSideC() <= 0)  return ("No es un " +
+            "Triangulo");
+        else if (getSideA() == getSideB() && getSideB() == getSideC()) return "Equilatero";
+        else if ((getSideA() == getSideB()) || (getSideA() == getSideC()) || (getSideB() == getSideC())) return "Isosceles";
+        else return "Escaleno";
+        
     }
 }

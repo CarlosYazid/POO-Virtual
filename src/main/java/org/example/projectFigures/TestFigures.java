@@ -240,7 +240,7 @@ public class TestFigures {
                     // Limpia los resultados
                     areaLabel.setText("Área: ");
                     perimeterLabel.setText("Perímetro: ");
-                    typeLabel.setText("Tipo (para triángulos):");
+                    typeLabel.setText("Tipo:");
                 }
             }
             
@@ -261,6 +261,10 @@ public class TestFigures {
                         
                         areaLabel.setText("Área: " + figure.getArea());
                         perimeterLabel.setText("Perímetro: " + figure.getPerimeter());
+                        
+                        if (figure instanceof Triangle triangle) {
+                            typeLabel.setText("Tipo: " + triangle.type());
+                        }
                         
                     } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(FiguresUI.this, "Por favor, introduzca valores válidos.", "Error", JOptionPane.ERROR_MESSAGE);

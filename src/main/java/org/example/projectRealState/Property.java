@@ -37,12 +37,11 @@ public class Property {
     
     /**
      * Metodo que a partir del valor del área de un inmueble, calcula su precio de venta
+     *
      * @param rateArea El valor unitario por área de un determinado inmueble
-     * @return Precio de venta del inmueble
      */
-    double computeSalePrice(double rateArea) {
+    void computeSalePrice(double rateArea) {
         salePrice = area * rateArea;
-        return salePrice;
     }
     
     /**

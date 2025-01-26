@@ -95,11 +95,11 @@ public class MainWindow extends JFrame implements ActionListener {
         cleanList.addActionListener(this);
         
         // Establece la lista gráfica de personas
-        nameList = new JList();
+        nameList = new JList<>();
         // Establece que se pueda seleccionar solamente un elemento de la lista
         nameList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
-        model = new DefaultListModel();
+        model = new DefaultListModel<>();
         
         // Establece una barra de desplazamiento vertical
         scrollList = new JScrollPane();

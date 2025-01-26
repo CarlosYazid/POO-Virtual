@@ -37,7 +37,7 @@ public class HouseClosedSet extends UrbanHouse {
      * @param rateAdmin Parámetro que define el valor de administración para una casa en conjunto
      *                 cerrado
      * @param havePool Parámetro que define si una casa en conjunto cerrado tiene o no piscina
-     * @param hasSportField Parámetro que define si una casa en conjunto cerrado tiene o no
+     * @param hasSportsField Parámetro que define si una casa en conjunto cerrado tiene o no
      *                      campos deportivos
      */
     public HouseClosedSet(int realStateId,

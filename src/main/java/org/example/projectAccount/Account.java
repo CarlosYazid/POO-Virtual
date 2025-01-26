@@ -42,7 +42,7 @@ public abstract class Account {
     /**
      * Metodo que recibe una cantidad de dinero a consignar y actualiza
      * el saldo de la cuenta
-     * @param balance Parámetro que define la cantidad de dinero a
+     * @param amount Parámetro que define la cantidad de dinero a
      * consignar en la cuenta
      */
     public void deposit(float amount) {
@@ -53,7 +53,7 @@ public abstract class Account {
     
     /**
      * Metodo que recibe una cantidad de dinero a retirar y actualiza el saldo de la cuenta
-     * @param balance Parámetro que define la cantidad de dinero a retirar de la cuenta
+     * @param amount Parámetro que define la cantidad de dinero a retirar de la cuenta
      */
     public void withdraw(float amount) {
         if (balance >= amount) {

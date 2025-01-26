@@ -32,7 +32,7 @@ public class Team {
     public Team(String name, String country) {
         this.name = name;
         this.country = country;
-        listBikers = new Vector(); // Se crea el vector de ciclistas que conforma el equipo
+        listBikers = new Vector<>(); // Se crea el vector de ciclistas que conforma el equipo
     }
     
     /**

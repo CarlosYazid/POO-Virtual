@@ -1,7 +1,7 @@
 package org.example.projectAccount;
 
 /**
- * Esta clase denominada CheckingAccount modela una cuenta bancaria
+ * Esta clase denominada CheckingAccount modela una cuenta corriente bancaria
  * que es una subclase de Account. Tiene un nuevo atributo: overdraft.
  * @version 1.2/2025
  */
